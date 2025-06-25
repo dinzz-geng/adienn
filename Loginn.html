@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #00cf, #0072ff, #2c2c);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      width: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      padding-left: 30px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      outline: none;
+    }
+
+    .input-group i {
+      position: absolute;
+      margin-top: 14px;
+      margin-left: 10px;
+      color: #888;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .forgot {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 20px;
+      text-align: right;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(to right, #00c6ff, #ff00b8);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .blue { background-color: #0072ff; }
+    .sky { background-color: #00c6ff; }
+    .red { background-color: #ff4b5c; }
+    .mix { background: linear-gradient(to right, #00c6ff, #ff00b8); }
+
+    p {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .register-link {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .register-link a {
+      color: #0072ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    
+    <div class="input-group input-wrapper">
+      <i class="fa fa-user"></i>
+      <input type="text" placeholder="Type your username">
+    </div>
+
+    <div class="input-group input-wrapper">
+      <i class="fa fa-lock"></i>
+      <input type="password" placeholder="Type your password">
+    </div>
+
+    <div class="forgot">Forgot password?</div>
+
+    <!-- Tombol login sebagai link -->
+    <a href="Homee.html" class="btn-login">LOGIN</a>
+
+    <p>Or Sign Up Using</p>
+    <div class="social">
+      <div class="circle blue"></div>
+      <div class="circle sky"></div>
+      <div class="circle red"></div>
+      <div class="circle mix"></div>
+    </div>
+
+    <!-- Link register -->
+    <div class="register-link">
+      Don't have an account? <a href="regis.html">Register</a>
+    </div>
+  </div>
+
+  <!-- Font Awesome (for icons) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

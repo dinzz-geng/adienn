@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi Baju Distro - Urban Streetwear</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+      
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #ff4757;
+        }
+        
+        .home-btn {
+            background-color: #ff4757;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .home-btn:hover {
+            background-color: #ff6b81;
+            transform: translateY(-2px);
+        }
+        
+        .page-title {
+            text-align: center;
+            margin: 30px 0
+          
+            font-size: 2.2rem;
+            color: #1a1a1a;
+        }
+        
+        .page-title span {
+            color: #ff4757;
+        }
+        
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #ff4757;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        
+        .product-brand {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .product-description {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .price-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ff4757;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-left: 10px;
+        }
+        
+        .discount-percent {
+            background-color: #ffebee;
+            color: #ff4757;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .color-options {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .color-option {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s ease;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected {
+            border-color: #1a1a1a;
+            transform: scale(1.1);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .add-to-cart, .view-details {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .add-to-cart {
+            background-color: #1a1a1a;
+            color: white;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #333;
+        }
+        
+        .view-details {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+        
+        .view-details:hover {
+            background-color: #e1e1e1;
+        }
+        
+        .footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .products-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="Loginn.html" class="logo">log<span>in</span></a>
+                <a href="Profill.html" class="home-btn">
+                    <i class="progammer"></i> profil
+                </a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <h1 class="page-title">Koleksi <span>Baju Distro</span> Terbaru</h1>
+        
+        <div class="products-container">
+            <!-- Produk 1 -->
+            <div class="product-card">
+                <div class="product-badge">Terlaris</div>
+                <div class="product-image-container">
+                    <img src="kaosdistro.jpg" alt="Urban Streetwear T-Shirt" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Urban Graphic Tee</h3>
+                    <p class="product-brand">by URBAN DISTRICT</p>
+                    <p class="product-description">
+                        Kaos distro dengan bahan cotton combed 30s yang nyaman. Desain grafis urban eksklusif dengan printing DTG yang tajam dan tahan lama.
+                    </p>
+                    
+                    <div class="price-container">
+                        <span class="current-price">Rp 100.000</span>
+                        <span class="original-price">Rp 150.000</span>
+                        <span class="discount-percent">25% OFF</span>
+                    </div>
+                    
+                    <div class="color-options">
+                        <div class="color-option selected" style="background-color: #000000;" title="Hitam"></div>
+                        <div class="color-option" style="background-color: #ffffff; border: 1px solid #eee;" title="Putih"></div>
+                        <div class="color-option" style="background-color: #e63946;" title="Merah"></div>
+                        <div class="color-option" style="background-color: #1d3557;" title="Navy"></div>
+                    </div>
+                    
+                    <div class="product-actions">
+
+                        <button class="view-details" onclick="viewDetails(1)">
+                            <i class="fas fa-info-circle"></i> Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produk 2 -->
+            <div class="product-card">
+                <div class="product-badge">New</div>
+                <div class="product-image-container">
+                    <img src="hoodie.jpg" alt="Streetwear Hoodie" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Premium Hoodie</h3>
+                    <p class="product-brand">by STREET KULTURE</p>
+                    <p class="product-description">
+                        Hoodie premium dengan bahan fleece cotton yang hangat dan nyaman. Desain minimalis dengan embroidery logo di dada. Tersedia dalam berbagai warna.
+                    </p>
+                    
+                    <div class="price-container">
+                        <span class="current-price">Rp 349.000</span>
+                        <span class="original-price">Rp 399.000</span>
+                        <span class="discount-percent">12% OFF</span>
+                    </div>
+                    
+                    <div class="color-options">
+                        <div class="color-option selected" style="background-color: #1d3557;" title="Navy"></div>
+                        <div class="color-option" style="background-color: #a8dadc;" title="Mint"></div>
+                        <div class="color-option" style="background-color: #f1faee;" title="Cream"></div>
+                        <div class="color-option" style="background-color: #e63946;" title="Merah"></div>
+                    </div>
+                    
+                    <div class="product-actions">
+                    
+                        <button class="view-details" onclick="viewDetails(2)">
+                            <i class="fas fa-info-circle"></i> Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produk 3 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="vintage.jpg" alt="Flannel Shirt" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Vintage Flannel</h3>
+                    <p class="product-brand">by RETRO DISTRICT</p>
+                    <p class="product-description">
+                        Kemeja flannel vintage dengan bahan katun yang nyaman dipakai. Desain kotak-kota klasik dengan warna yang tidak mudah luntur.
+                    </p>
+                    
+                    <div class="price-container">
+                        <span class="current-price">Rp 249.000</span>
+                    </div>
+                    
+                    <div class="color-options">
+                        <div class="color-option selected" style="background-color: #6a4c93;" title="Ungu"></div>
+                        <div class="color-option" style="background-color: #8a8a8a;" title="Abu-abu"></div>
+                        <div class="color-option" style="background-color: #1982c4;" title="Biru"></div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        
+                        <button class="view-details" onclick="viewDetails(3)">
+                            <i class="fas fa-info-circle"></i> Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+                  
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 URBANSTREET. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Fungsi untuk memilih warna
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Hapus selected dari semua warna dalam card yang sama
+                this.parentElement.querySelectorAll('.color-option').forEach(el => {
+                    el.classList.remove('selected');
+                });
+                
+                // Tambahkan selected ke warna yang diklik
+                this.classList.add('selected');
+            });
+        });
+        
+        // Fungsi untuk menambah ke keranjang
+        function addToCart(productId) {
+            const productTitles = {
+                1: "Urban Graphic Tee",
+                2: "Premium Hoodie",
+                3: "Vintage Flannel"
+            };
+            
+            const selectedColor = document.querySelector(`.product-card:nth-child(${productId}) .color-option.selected`).getAttribute('title');
+            
+            alert(`Produk "${productTitles[productId]}" (Warna: ${selectedColor}) telah ditambahkan ke keranjang!`);
+        }
+        
+        // Fungsi untuk melihat detail produk
+        function viewDetails(productId) {
+            window.location.href = `detail-produk-${productId}.html`;
+        }
+    </script>
+                    
+</body>
+</html>
